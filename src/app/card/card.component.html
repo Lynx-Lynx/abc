@@ -1,0 +1,41 @@
+  <div class="card__nav">
+      <button *ngIf="!showNavigation" class="card__nav-search" (click)="showNavigation = !showNavigation">
+        Choose a letter <mat-icon>search</mat-icon>
+      </button>
+      <button *ngIf="showNavigation" class="card__nav-search" (click)="showNavigation = !showNavigation">
+        Hide <mat-icon>clear</mat-icon>
+      </button>
+      <div class="card__navbar" *ngIf="showNavigation">
+        <div class="card__navbar-letter" *ngFor="let letter of alphabet; let i = index" (click)="selectIndex(i)">{{letter | uppercase}}</div>
+      </div>
+    </div>
+  <div class="card-wrapper">
+    <div [ngClass]="isFlipped ? 'flipped' : ''" class="card">
+      <img class="card__frame" src="../../assets/frame.png" alt="frame" (click)="toggle()">
+      <div class="card__front">
+        <div class="card__letter">{{config[currentIndex].letter | uppercase}}</div>
+      </div>
+      <div class="card__back">
+        <div class="card__title">{{config[currentIndex].title}}</div>
+        <div class="card__description">{{config[currentIndex].desc}}</div>
+      </div>
+    </div>
+    <div class="card__buttons">
+      <button [ngClass]="{'hidden' : !currentIndex}" class="button-left">
+        <img 
+        [@leftArrowClick]="leftArrowClicked ? 'leftArrowActive' : 'leftArrowInactive'" 
+        class="arrow-left" 
+        src="../../assets/pointer-left.png" 
+        alt="left" 
+        (click)="prev()">
+      </button>
+      <button [ngClass]="{'hidden' : currentIndex === config.length - 1}" class="button-right">
+        <img 
+          [@rightArrowClick]="rightArrowClicked ? 'rightArrowActive' : 'rightArrowInactive'" 
+          class="arrow-right" 
+          src="../../assets/pointer-right.png" 
+          alt="right" 
+          (click)="next()">
+      </button>
+    </div>
+  </div>

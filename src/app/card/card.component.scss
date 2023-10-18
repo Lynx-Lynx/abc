@@ -1,0 +1,218 @@
+@font-face {
+  font-family: 'Gothic';
+  src: url('../../assets/Gothic.woff2') format('woff2');
+}
+
+.card {
+  width: 20rem;
+  height: 20rem;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3rem;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    margin-top: 5rem;
+
+    &-search {
+      display: flex;
+      align-items: center;
+      font-family: "Gothic", sans-serif;
+      color: #cfcfcf;
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+      letter-spacing: 0.1rem;
+    }
+  }
+
+  &__navbar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(2rem, 1fr));
+    grid-gap: 0.5rem;
+    width: 75%;
+    &-letter {
+      cursor: pointer;
+      font-family: "Gothic", sans-serif;
+      font-size: 1rem;
+      width: 1.5rem;
+      height: 1.5rem;
+      color: #cfcfcf;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #353535;
+    }
+  }
+
+  &__frame {
+    position: relative;
+    max-width: 23rem;
+    max-height: 23rem;
+    z-index: 2;
+  }
+
+  &__letter {
+    font-family: "Gothic", sans-serif;
+    font-size: 17rem;
+    color: #cfcfcf;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__title {
+    font-family: "Gothic", sans-serif;
+    font-size: 4rem;
+    padding-bottom: 4rem;
+    text-transform: capitalize;
+    color: #cfcfcf;
+  }
+
+  &__description {
+    text-align: center;
+    color: #cfcfcf;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    padding: 0 1.3rem;
+  }
+
+  &-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+  }
+
+  &__back {
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  &__front, &__back {
+    background: #0f0f0f;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 6px;
+    width: 20rem;
+    height: 20rem;
+  }
+}
+
+.flipped {
+  transform: rotateY(180deg);
+}
+
+mat-icon {
+  color: #919191;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.arrow-left, .arrow-right {
+  width: 7rem;
+}
+
+.button-left {
+  margin-right: 4rem;
+}
+
+.button-right {
+  margin-left: 4rem;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+//will apply if screen size > 820px
+@media (min-width: 820px) {
+  .card {
+    width: 32rem;
+    height: 32rem;
+  
+    &__buttons {
+      margin-top: 4rem;
+    }
+  
+    &__nav {
+      margin-top: 5rem;
+  
+      &-search {
+        font-size: 2.5rem;
+      }
+    }
+  
+    &__navbar {
+      grid-gap: 1rem;
+      width: 69%;
+      margin-bottom: 1rem;
+
+      &-letter {
+        font-size: 1.5rem;
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+
+    &__frame {
+      position: relative;
+      max-width: 36rem;
+      max-height: 36rem;
+      z-index: 2;
+    }
+  
+    &__letter {
+      font-size: 25rem;
+    }
+  
+    &__title {
+      font-size: 6rem;
+      padding-bottom: 6rem;
+    }
+  
+    &__description {
+      font-size: 1.5rem;
+    }
+  
+    &__front, &__back {
+      width: 32rem;
+      height: 32rem;
+    }
+  }
+
+  .arrow-left, .arrow-right {
+    width: 11rem;
+  }
+
+  .button-left {
+    margin-right: 6rem;
+  }
+  
+  .button-right {
+    margin-left: 6rem;
+  }
+}
